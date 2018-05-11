@@ -1,5 +1,5 @@
 class Tender:
-    _id = None  #_приватные поля
+    _id = None  #_приватные
     _number = None
     _name = None
     _industry = None
