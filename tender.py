@@ -9,13 +9,10 @@ class Tender:
     _doc_deadline_date = None    #for sending document
     _customer = None
     _winner_of_auction = None
+    _url = None
 
     def __init__(self): #конструктор класса с двумя параметрами
         pass
-        #self._number = self.get_()
-        # self._name = name
-
-
 
     def set_id(self, new_id):
         if not isinstance(new_id, int):
@@ -67,6 +64,10 @@ class Tender:
             raise TypeError("input new_download_doc is not str")
         self._winner_of_auction = new_download_doc
 
+    def set_url(self, url):
+        if not isinstance(url, str):
+            raise TypeError("input url is not str")
+        self._url = url
 
     def get_id(self):  # геттер получить id
         return self._id
@@ -98,7 +99,8 @@ class Tender:
     def get_winner_of_auction(self):
         return self._winner_of_auction
 
+    def get_url(self):
+        return self._url
+
     def print_info(self):  # вывести в консоль инфо
         print("tender: id = %s" % str(self._id) + ", name = %s" % self._name)
-
-

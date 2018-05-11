@@ -33,9 +33,6 @@ mycontrol.insert_tenders(mymongo)
 from controller import Controller
 from source import HtmlParser
 
-# myparser = HtmlParser()
-# myparser.get_tenders(1)
-#
 cont = Controller()
 cont.process()
 

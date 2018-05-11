@@ -41,16 +41,13 @@ class MongoConnect:
                              "place_of_tender": place_tender,
                              "customer": customer,
                              "winner": winner})
-
-            # self._coll.save({"start_date": start_date})
         for i in self._coll.find():  # вывести все docs in коллекции
             print(i)
 
     def remove_all_coll(self):
-            # self._my_coll.remove({})
             self._coll.remove({})
 
-    def insert_My_tenders(self, num_tender):
+    def insert_to_my_tenders(self, num_tender):
         if not isinstance(num_tender, int):
             raise TypeError("input num_tender is not int")
         tender = self._coll.find_one({"number": num_tender})
@@ -62,13 +59,8 @@ class MongoConnect:
         else:
             print("WARN: my tender " + str(num_tender) + " already exists")
 
-
-
-
-
-
-
-
-
-
-
+    def find_changed_tenders(self):
+        chanded_tenders = []
+        tenders = self._coll.find()
+        my_tenders = self._my_coll.find()
+        return chanded_tenders

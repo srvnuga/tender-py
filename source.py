@@ -51,7 +51,8 @@ class HtmlParser:
                 name_element = tender_column.findAll('a', {'target': '_blank'})[0]
                 title = name_element.get('title')
                 new_tender.set_name(title)
-                new_tender = HtmlParser.add_additional_info_to_tender(new_tender)
+                tender_link = HtmlParser.TENDER_HOST + name_element.get('href')
+                new_tender.set_url(tender_link)
 
                 industry_element = \
                     tender_column.findAll("div", {"class": "column branch-column column-clickwork"})[0].findAll("div", {
@@ -71,7 +72,7 @@ class HtmlParser:
                 place_tender = re.sub("\r\n", "", place_element.getText())
                 new_tender.set_place_tender(place_tender)
 
-                list_tend.append(new_tender)
+                list_tend.append(HtmlParser.add_additional_info_to_tender(new_tender))
             page += 1
         return list_tend
 
